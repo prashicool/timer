@@ -8,6 +8,7 @@ import {
     Modal,
     Animated,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons'; 
 import { TimerContext } from '../context/TimerContext';
 
 const AnimatedProgressBar = ({ progress, duration }) => {
@@ -16,7 +17,7 @@ const AnimatedProgressBar = ({ progress, duration }) => {
     useEffect(() => {
         Animated.timing(animatedWidth, {
             toValue: progress,
-            duration: 1000, // Animation time
+            duration: 1000,
             useNativeDriver: false,
         }).start();
     }, [animatedWidth, progress]);
@@ -76,7 +77,7 @@ export default function TimerList({ navigation }) {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container} >
             <TouchableOpacity
                 style={styles.addButton}
                 onPress={() => navigation.navigate('Add Timer')}
@@ -91,7 +92,11 @@ export default function TimerList({ navigation }) {
                             style={styles.categoryHeader}
                             onPress={() => toggleCategory(category)}
                         >
+                            <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                             <Text style={styles.categoryTitle}>{category}</Text>
+                            <Icon name="keyboard-arrow-down" size={24} color="#000" />
+                            </View>
+                            
                             <View style={styles.categoryActions}>
                                 <TouchableOpacity
                                     style={[styles.categoryActionButton, styles.startAllButton]}
@@ -204,20 +209,14 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         backgroundColor: '#fff',
+        
     },
     addButton: {
         backgroundColor: '#000',
         padding: 15,
         borderRadius: 10,
         marginBottom: 10,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+     
     },
     addButtonText: {
         color: 'white',
