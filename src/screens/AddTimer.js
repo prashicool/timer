@@ -28,6 +28,7 @@ export default function AddTimer({ navigation }) {
         <TextInput
           style={styles.input}
           placeholder="Timer Name"
+           placeholderTextColor="black"
           value={name}
           onChangeText={setName}
         />
@@ -35,6 +36,7 @@ export default function AddTimer({ navigation }) {
         <TextInput
           style={styles.input}
           placeholder="Duration (seconds)"
+           placeholderTextColor="black"
           value={duration}
           onChangeText={setDuration}
           keyboardType="numeric"
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 5,
     fontSize: 16,
+    color:'#000',
   },
   buttonContainer: {
     padding: 20,
